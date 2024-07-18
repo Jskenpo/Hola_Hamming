@@ -37,7 +37,7 @@ import random
 error_position = random.randint(0, 10)
 hamming_code[error_position] ^= 1  # Flip the bit
 
-print(f"Error introducido en la posición: {error_position + 1}")
+print(f"\nError introducido en la posición: {error_position + 1}")
 print(f"Codigo con error: {''.join(map(str, hamming_code))}")
 
 # Detectar el error
@@ -45,8 +45,6 @@ syndrome = 0
 for p in parity_positions:
     if calculate_parity(hamming_code, parity_positions[p]) != 0:
         syndrome += p
-
-print(f"Síndrome: {syndrome}")
 
 # Comprobamos si el síndrome es igual a la posición del error
 print(f"El error se encuentra en la posición: {syndrome}")
